@@ -11,7 +11,6 @@
 # production
 /build
 
-artifacts/build-info
 # misc
 .DS_Store
 .env.local
