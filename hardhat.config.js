@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require('dotenv').config({path: __dirname + '/.env'})
+
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -14,7 +15,6 @@ task("accounts", "Prints the list of accounts", async () => {
 
 module.exports = {
   solidity: "0.6.12",
-  defaultNetwork: "kovan",
   networks: {
     hardhat: {
       // forking: {
