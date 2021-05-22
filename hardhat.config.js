@@ -23,7 +23,7 @@ module.exports = {
     },
     kovan: {
       url: process.env.ALCHEMY_KOVAN_RPC_URL,
-      account: [`0x${process.env.ALCHEMY_KOVAN_PRIVATE_KEY}`]
+      accounts: [`0x${process.env.ALCHEMY_KOVAN_PRIVATE_KEY}`]
     }
   },
 };
