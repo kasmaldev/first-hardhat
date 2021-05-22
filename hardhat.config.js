@@ -13,7 +13,15 @@ task("accounts", "Prints the list of accounts", async () => {
   }
 });
 
-module.exports = {
+const local = {
+  solidity: "0.6.12",
+  networks: {
+    hardhat: {
+    },
+  },
+};
+
+const with_kovan = {
   solidity: "0.6.12",
   networks: {
     hardhat: {
@@ -27,3 +35,7 @@ module.exports = {
     }
   },
 };
+
+const config = process.env.ALCHEMY_KOVAN_RPC_URL ? with_kovan : local;
+
+module.exports = config;
