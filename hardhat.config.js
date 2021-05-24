@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
-require('dotenv').config({path: __dirname + '/.env'})
+require('dotenv').config({ path: __dirname + '/.env' })
+require("@nomiclabs/hardhat-etherscan");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -32,6 +33,9 @@ const with_kovan = {
     kovan: {
       url: process.env.ALCHEMY_KOVAN_RPC_URL,
       accounts: [`0x${process.env.ALCHEMY_KOVAN_PRIVATE_KEY}`]
+    },
+    etherscan: {
+      apiKey: process.env.ETHERSCAN_API_KEY
     }
   },
 };
