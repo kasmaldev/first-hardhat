@@ -26,3 +26,11 @@ npx hardhat run --network kovan scripts/deploy.js
 ```
 
 https://hardhat.org/guides/deploying.html
+
+### Verify your contract
+
+```console
+npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
+```
+
+https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html
