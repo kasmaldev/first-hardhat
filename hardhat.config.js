@@ -26,13 +26,13 @@ const with_kovan = {
   solidity: "0.6.12",
   networks: {
     hardhat: {
-      // forking: {
-      //   url: process.env.ALCHEMY_MAINNET_RPC_URL
-      // }
+      forking: {
+        url: process.env.ALCHEMY_MAINNET_RPC_URL
+      }
     },
     kovan: {
       url: process.env.ALCHEMY_KOVAN_RPC_URL,
-      accounts: [`0x${process.env.ALCHEMY_KOVAN_PRIVATE_KEY}`]
+      accounts: [`0x${process.env.KOVAN_PRIVATE_KEY}`]
     },
   },
   etherscan: {
