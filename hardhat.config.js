@@ -34,10 +34,10 @@ const with_kovan = {
       url: process.env.ALCHEMY_KOVAN_RPC_URL,
       accounts: [`0x${process.env.ALCHEMY_KOVAN_PRIVATE_KEY}`]
     },
-    etherscan: {
-      apiKey: process.env.ETHERSCAN_API_KEY
-    }
   },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY
+  }
 };
 
 const config = process.env.ALCHEMY_KOVAN_RPC_URL ? with_kovan : local;
