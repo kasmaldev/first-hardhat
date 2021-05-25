@@ -3,8 +3,7 @@
 //
 // When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
-const hre = require("hardhat");
-const ethers = hre.ethers;
+import { run, ethers } from "hardhat";
 
 const ETHERSCAN_TX_URL = "https://kovan.etherscan.io/tx/"
 
@@ -14,7 +13,7 @@ async function main() {
     //
     // If this script is run directly using `node` you may want to call compile 
     // manually to make sure everything is compiled
-    await hre.run('compile');
+    await run('compile');
 
     const provider = await ethers.provider;
     const signer = provider.getSigner()
@@ -23,7 +22,7 @@ async function main() {
     // })
 
     // We get the contract to deploy
-    const Greeter = await hre.ethers.getContractFactory("Greeter");
+    const Greeter = await ethers.getContractFactory("Greeter");
     const greeter = await Greeter.deploy("Hello, Hardhat!");
     const message = await greeter.greet();
 
