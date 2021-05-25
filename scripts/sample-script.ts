@@ -6,7 +6,7 @@
 const hre = require("hardhat");
 const ethers = hre.ethers;
 
-ETHERSCAN_TX_URL = "https://kovan.etherscan.io/tx/"
+const ETHERSCAN_TX_URL = "https://kovan.etherscan.io/tx/"
 
 async function main() {
     // Hardhat always runs the compile task when running scripts with its command
@@ -29,7 +29,7 @@ async function main() {
 
 
     await greeter.setGreeting("Hola, mundo!");
-    changed_message = await greeter.greet();
+    const changed_message = await greeter.greet();
     console.log({message, changed_message})
 
     await greeter.deployed();
