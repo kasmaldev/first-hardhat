@@ -6,6 +6,8 @@
 const hre = require("hardhat");
 const ethers = hre.ethers;
 
+ETHERSCAN_TX_URL = "https://kovan.etherscan.io/tx/"
+
 async function main() {
     // Hardhat always runs the compile task when running scripts with its command
     // line interface.
@@ -13,6 +15,12 @@ async function main() {
     // If this script is run directly using `node` you may want to call compile 
     // manually to make sure everything is compiled
     await hre.run('compile');
+
+    const provider = await ethers.provider;
+    const signer = provider.getSigner()
+    // console.log({
+    //     signer, provider
+    // })
 
     // We get the contract to deploy
     const Greeter = await hre.ethers.getContractFactory("Greeter");
@@ -27,6 +35,10 @@ async function main() {
     await greeter.deployed();
 
     console.log("Greeter deployed to:", greeter.address);
+
+    console.log(
+        `You did it! View your tx here: ${ETHERSCAN_TX_URL}${greeter.deployTransaction.hash}`
+    )
 }
 
 // We recommend this pattern to be able to use async/await everywhere
