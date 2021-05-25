@@ -1,13 +1,14 @@
-require("@nomiclabs/hardhat-waffle");
 require('dotenv').config({ path: __dirname + '/.env' })
-require("@nomiclabs/hardhat-etherscan");
-
+import "@nomiclabs/hardhat-etherscan";
+import { task } from "hardhat/config";
+import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-ethers";
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
 
-task("accounts", "Prints the list of accounts", async () => {
-  const accounts = await ethers.getSigners();
+task("accounts", "Prints the list of accounts", async (args, hre) => {
+  const accounts = await hre.ethers.getSigners();
 
   for (const account of accounts) {
     console.log(account.address);

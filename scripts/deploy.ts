@@ -1,3 +1,5 @@
+import { ethers } from "hardhat";
+
 async function main() {
   // We get the contract to deploy
   const Greeter = await ethers.getContractFactory("Greeter");

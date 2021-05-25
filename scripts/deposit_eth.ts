@@ -1,11 +1,10 @@
-const hre = require("hardhat");
-const ethers = hre.ethers;
+import { run, ethers } from "hardhat";
 
 async function main() {
     const provider = await ethers.provider;
     const signer = provider.getSigner()
     console.log({
-        signer, provider
+        signer
     })
     // const balance = await provider.getBalance("ethers.eth")
     // console.log(ethers.utils.formatEther(balance))
