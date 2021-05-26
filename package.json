@@ -24,6 +24,8 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "@aave/protocol-js": "^2.7.2",
+    "@aave/protocol-v2": "^1.0.1",
     "dotenv": "^10.0.0"
   }
 }
