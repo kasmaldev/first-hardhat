@@ -26,6 +26,7 @@
   "dependencies": {
     "@aave/protocol-js": "^2.7.2",
     "@aave/protocol-v2": "^1.0.1",
+    "@apollo/client": "^3.3.19",
     "dotenv": "^10.0.0"
   }
 }
