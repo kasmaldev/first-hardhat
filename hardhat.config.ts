@@ -43,4 +43,4 @@ const with_kovan = {
 
 const config = process.env.ALCHEMY_KOVAN_RPC_URL ? with_kovan : local;
 
-module.exports = config;
+export default config;
