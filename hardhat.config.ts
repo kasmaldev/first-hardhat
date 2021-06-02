@@ -1,4 +1,6 @@
-require('dotenv').config({ path: __dirname + '/.env' })
+// require('dotenv').config({ path: __dirname + '/.env' })
+import * as dotenv from "dotenv";
+dotenv.config({ path: __dirname+'/.env' });
 import "@nomiclabs/hardhat-etherscan";
 import { task } from "hardhat/config";
 import "@nomiclabs/hardhat-waffle";
