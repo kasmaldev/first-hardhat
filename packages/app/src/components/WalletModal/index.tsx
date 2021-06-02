@@ -4,7 +4,7 @@ import { Button } from "@chakra-ui/react"
 
 export default function WalletModal() {
 
-    const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
+    const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
 
 
     return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/images/ethereumLogo.png';
+import WalletModal from '../components/WalletModal';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <WalletModal />
       </header>
     </div>
   );
