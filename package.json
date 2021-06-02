@@ -1,19 +1,15 @@
 {
-  "name": "hardhat-tutorial",
+  "name": "monorepo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "yarn workspace @first-hardhat/react-app build --max-old-space-size=12288",
-    "start": "yarn workspace @first-hardhat/react-app start",
-    "compile": "yarn workspace @first-hardhat/hardhat compile",
-    "deploy": "yarn workspace @first-hardhat/hardhat deploy",
-    "watch": "yarn workspace @first-hardhat/hardhat watch",
-    "accounts": "yarn workspace @first-hardhat/hardhat accounts",
-    "balance": "yarn workspace @first-hardhat/hardhat balance",
-    "generate": "yarn workspace @first-hardhat/hardhat generate",
-    "account": "yarn workspace @first-hardhat/hardhat account"
+    "build": "yarn workspace app build --max-old-space-size=12288",
+    "start": "yarn workspace app start",
+    "compile": "yarn workspace hardhat compile",
+    "deploy": "yarn workspace hardhat deploy",
+    "account": "yarn workspace hardhat account"
   },
   "workspaces": {
     "packages": [
