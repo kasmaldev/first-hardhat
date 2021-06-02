@@ -9,6 +9,7 @@
     "start": "yarn workspace app start",
     "compile": "yarn workspace hardhat compile",
     "deploy": "yarn workspace hardhat deploy",
+    "test": "yarn workspace hardhat test",
     "account": "yarn workspace hardhat account"
   },
   "workspaces": {
