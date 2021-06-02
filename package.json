@@ -4,33 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "npx hardhat clean",
-    "compile": "npx hardhat compile",
-    "deploy": "npx hardhat run --network kovan scripts/deploy.ts",
-    "test": "npx hardhat test",
-    "account": "npx hardhat accounts",
-    "coverage": "npm run build && npx hardhat coverage --temp artifacts --network coverage"
+    "build": "yarn workspace @first-hardhat/react-app build --max-old-space-size=12288",
+    "start": "yarn workspace @first-hardhat/react-app start",
+    "compile": "yarn workspace @first-hardhat/hardhat compile",
+    "deploy": "yarn workspace @first-hardhat/hardhat deploy",
+    "watch": "yarn workspace @first-hardhat/hardhat watch",
+    "accounts": "yarn workspace @first-hardhat/hardhat accounts",
+    "balance": "yarn workspace @first-hardhat/hardhat balance",
+    "generate": "yarn workspace @first-hardhat/hardhat generate",
+    "account": "yarn workspace @first-hardhat/hardhat account"
   },
-  "keywords": [],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/hardhat",
+      "**/hardhat/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuichiroaoki/first-hardhat.git"
+  },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
-    "@nomiclabs/hardhat-etherscan": "^2.1.2",
-    "@nomiclabs/hardhat-waffle": "^2.0.1",
-    "@types/chai": "^4.2.18",
-    "@types/mocha": "^8.2.2",
-    "@types/node": "^15.6.1",
-    "chai": "^4.3.4",
-    "ethereum-waffle": "^3.3.0",
-    "ethers": "^5.2.0",
-    "hardhat": "^2.2.1",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.2.4"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuichiroaoki/first-hardhat/issues"
   },
-  "dependencies": {
-    "@apollo/client": "^3.3.19",
-    "dotenv": "^10.0.0"
-  }
+  "homepage": "https://github.com/yuichiroaoki/first-hardhat#readme"
 }
