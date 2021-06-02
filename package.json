@@ -14,15 +14,6 @@
     "generate": "yarn workspace @first-hardhat/hardhat generate",
     "account": "yarn workspace @first-hardhat/hardhat account"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/hardhat",
-      "**/hardhat/**"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yuichiroaoki/first-hardhat.git"
