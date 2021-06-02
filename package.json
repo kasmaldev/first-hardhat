@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "yarn workspace @first-hardhat/react-app build --max-old-space-size=12288",
     "start": "yarn workspace @first-hardhat/react-app start",
@@ -13,6 +14,15 @@
     "balance": "yarn workspace @first-hardhat/hardhat balance",
     "generate": "yarn workspace @first-hardhat/hardhat generate",
     "account": "yarn workspace @first-hardhat/hardhat account"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/hardhat",
+      "**/hardhat/**"
+    ]
   },
   "repository": {
     "type": "git",
