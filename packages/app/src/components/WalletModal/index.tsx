@@ -4,8 +4,16 @@ import { Button } from "@chakra-ui/react"
 export default function WalletModal() {
 
     const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
+    console.log({ provider })
+    if (provider) {
+        const blocknum = provider.getBlockNumber()
 
+        const balance = provider.getBalance("ethers.eth")
+        console.log({
+            blocknum, balance
+        })
 
+    }
     return (
         <Button
             onClick={() => {

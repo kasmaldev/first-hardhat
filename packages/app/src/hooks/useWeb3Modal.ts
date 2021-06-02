@@ -20,12 +20,11 @@ const providerOptions = {
 
 function useWeb3Modal(config = {
     autoLoad: true,
-    infuraId: INFURA_ID,
     NETWORK: NETWORK_NAME
 }) {
     const [provider, setProvider] = useState<providers.Web3Provider>();
     const [autoLoaded, setAutoLoaded] = useState(false);
-    const { autoLoad, infuraId, NETWORK } = config;
+    const { autoLoad, NETWORK } = config;
 
     const web3Modal = new Web3Modal({
         network: NETWORK,
