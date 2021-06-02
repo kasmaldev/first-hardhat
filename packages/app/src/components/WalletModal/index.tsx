@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import useWeb3Modal from '../../hooks/useWeb3Modal';
 import { Button } from "@chakra-ui/react"
 
