@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && npm run compile",
+    "clean": "npx hardhat clean",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run --network kovan scripts/deploy.ts",
+    "test": "npx hardhat test",
+    "account": "npx hardhat accounts",
+    "coverage": "npm run build && npx hardhat coverage --temp artifacts --network coverage"
   },
   "keywords": [],
   "author": "",
@@ -24,8 +30,6 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@aave/protocol-js": "^2.7.2",
-    "@aave/protocol-v2": "^1.0.1",
     "@apollo/client": "^3.3.19",
     "dotenv": "^10.0.0"
   }
