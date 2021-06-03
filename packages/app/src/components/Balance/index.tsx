@@ -25,7 +25,7 @@ import { BigNumber, providers } from "ethers";
 
 
 interface BalanceProps {
-    provider: providers.Web3Provider;
+    provider: providers.Web3Provider | undefined;
     address: string;
     balance: undefined | BigNumber;
     value: BigNumber;

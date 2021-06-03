@@ -5,7 +5,11 @@ import useOnBlock from "./useOnBlock";
 
 const DEBUG = false;
 
-export default function useBalance(provider: providers.Web3Provider, address: string, pollTime = 0) {
+export default function useBalance(
+  provider: providers.Web3Provider | undefined, 
+  address: string, 
+  pollTime = 0
+  ) {
   const [balance, setBalance] = useState<BigNumber>();
 
   const pollBalance = useCallback(

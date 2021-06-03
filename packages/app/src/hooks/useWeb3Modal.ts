@@ -4,8 +4,8 @@ import Web3Modal from "web3modal";
 import { providers } from "ethers";
 
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import { INFURA_ID } from "../constants";
 
-const INFURA_ID = process.env.REACT_APP_INFURA_ID;
 const NETWORK_NAME = "kovan";
 const providerOptions = {
     walletconnect: {
