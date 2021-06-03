@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
-import { BigNumber, providers } from "ethers";
+import { BigNumber } from "ethers";
 
 export default function useGetAddress (
-    provider: providers.Web3Provider | undefined
+    signer: any
 ) {
     const [address, setAddress] = useState<BigNumber | string>("")
 
     useEffect(() => {
-        if (!provider) return;
+        if (!signer) return;
         const getAddress = async () => {
-            const signer = provider.getSigner()
             setAddress(await signer.getAddress())
         }
         getAddress()
-    }, [provider])
+    }, [signer])
     
-    console.log({address})
-
     return address;
 }

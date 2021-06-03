@@ -1,6 +1,7 @@
 // import React, { useState } from 'react';
 import logo from '../assets/images/ethereumLogo.png';
 import WalletModal from '../components/WalletModal';
+import useGetAddress from '../hooks/useGetAddress';
 import useWeb3Modal from '../hooks/useWeb3Modal';
 // import useWeb3Modal from '../hooks/useWeb3Modal';
 import './App.css';
@@ -10,6 +11,11 @@ import './App.css';
 function App() {
 
     const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
+    const signer = provider?.getSigner();
+
+    const address = useGetAddress(signer);
+
+    console.log({address})
   return (
     <div className="App">
       <header className="App-header">
