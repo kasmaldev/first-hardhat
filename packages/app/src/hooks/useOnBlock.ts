@@ -6,7 +6,7 @@ const DEBUG = false;
 
 
 export default function useOnBlock(
-    provider: providers.Web3Provider | null, fn: () => void
+    provider: providers.Web3Provider | null | undefined, fn: () => void
 ) {
     const savedCallback = useRef<() => void | undefined>();
     // Remember the latest fn.

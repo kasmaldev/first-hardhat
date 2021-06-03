@@ -29,7 +29,8 @@ function useWeb3Modal(config = {
     const web3Modal = new Web3Modal({
         network: NETWORK,
         cacheProvider: true,
-        providerOptions: providerOptions
+        providerOptions: providerOptions,
+        theme: "dark"
     });
 
     const loadWeb3Modal = useCallback(async () => {

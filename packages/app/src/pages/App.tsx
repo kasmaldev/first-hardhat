@@ -1,17 +1,13 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import logo from '../assets/images/ethereumLogo.png';
-import Balance from '../components/Balance';
 import WalletModal from '../components/WalletModal';
-import useWeb3Modal from '../hooks/useWeb3Modal';
+// import useWeb3Modal from '../hooks/useWeb3Modal';
 import './App.css';
-import { useUserAddress } from "eth-hooks";
-import { providers } from 'ethers';
-import useGetAddress from '../hooks/useGetAddress';
+// import { useUserAddress } from "eth-hooks";
+// import useGetAddress from '../hooks/useGetAddress';
 
 function App() {
 
-  const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
-  const address = useGetAddress(provider);
   return (
     <div className="App">
       <header className="App-header">
@@ -28,7 +24,6 @@ function App() {
           Learn React
         </a>
         <WalletModal />
-        <Balance provider={provider} address={address} />
       </header>
     </div>
   );

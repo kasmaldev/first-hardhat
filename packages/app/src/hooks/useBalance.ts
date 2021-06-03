@@ -6,7 +6,7 @@ import useOnBlock from "./useOnBlock";
 const DEBUG = false;
 
 export default function useBalance(
-  provider: providers.Web3Provider | undefined, 
+  provider: providers.Web3Provider | undefined | null, 
   address: string, 
   pollTime = 0
   ) {
