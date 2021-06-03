@@ -1,10 +1,18 @@
-import useWeb3Modal from '../../hooks/useWeb3Modal';
 import { Button } from "@chakra-ui/react"
 import { useState } from 'react';
+import { providers } from 'ethers';
 
-export default function WalletModal() {
+interface WalletModalProps {
+    provider: providers.Web3Provider | undefined;
+   loadWeb3Modal: () => Promise<void>;
+   logoutOfWeb3Modal: () => Promise<void>;
+}
 
-    const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
+
+export default function WalletModal({
+    provider, loadWeb3Modal, logoutOfWeb3Modal
+}: WalletModalProps) {
+
     const [address, setAddress] = useState("");
     const getAddress = async () => {
         if (!provider) return;

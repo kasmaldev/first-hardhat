@@ -1,6 +1,7 @@
 // import React, { useState } from 'react';
 import logo from '../assets/images/ethereumLogo.png';
 import WalletModal from '../components/WalletModal';
+import useWeb3Modal from '../hooks/useWeb3Modal';
 // import useWeb3Modal from '../hooks/useWeb3Modal';
 import './App.css';
 // import { useUserAddress } from "eth-hooks";
@@ -8,6 +9,7 @@ import './App.css';
 
 function App() {
 
+    const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
   return (
     <div className="App">
       <header className="App-header">
@@ -23,7 +25,7 @@ function App() {
         >
           Learn React
         </a>
-        <WalletModal />
+        <WalletModal provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
       </header>
     </div>
   );

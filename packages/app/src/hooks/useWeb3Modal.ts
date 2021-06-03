@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Web3Modal from "web3modal";
 
 import { providers } from "ethers";
@@ -26,12 +26,14 @@ function useWeb3Modal(config = {
     const [autoLoaded, setAutoLoaded] = useState(false);
     const { autoLoad, NETWORK } = config;
 
-    const web3Modal = new Web3Modal({
+    const web3Modal = useMemo(() => {
+        return new Web3Modal({
         network: NETWORK,
         cacheProvider: true,
         providerOptions: providerOptions,
         theme: "dark"
     });
+    }, [NETWORK])
 
     const loadWeb3Modal = useCallback(async () => {
         const newProvider = await web3Modal.connect();
