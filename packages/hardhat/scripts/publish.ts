@@ -5,7 +5,7 @@ import bre from "hardhat";
 const publishDir = "../app/src/contracts";
 const graphDir = "../subgraph"
 
-function publishContract(contractName) {
+function publishContract(contractName: string) {
   console.log(
     " 💽 Publishing",
     chalk.cyan(contractName),
@@ -13,7 +13,7 @@ function publishContract(contractName) {
     chalk.gray(publishDir)
   );
   try {
-    let contract = fs
+    let contract: any = fs
       .readFileSync(`${bre.config.paths.artifacts}/contracts/${contractName}.sol/${contractName}.json`)
       .toString();
     const address = fs
@@ -37,15 +37,15 @@ function publishContract(contractName) {
     graphConfig = JSON.parse(graphConfig)
     graphConfig[contractName + "Address"] = address
     fs.writeFileSync(
-      `${publishDir}/${contractName}.address.js`,
+      `${publishDir}/${contractName}.address.ts`,
       `module.exports = "${address}";`
     );
     fs.writeFileSync(
-      `${publishDir}/${contractName}.abi.js`,
+      `${publishDir}/${contractName}.abi.ts`,
       `module.exports = ${JSON.stringify(contract.abi, null, 2)};`
     );
     fs.writeFileSync(
-      `${publishDir}/${contractName}.bytecode.js`,
+      `${publishDir}/${contractName}.bytecode.ts`,
       `module.exports = "${contract.bytecode}";`
     );
 
@@ -90,8 +90,9 @@ async function main() {
     }
   });
   fs.writeFileSync(
-    `${publishDir}/contracts.js`,
-    `module.exports = ${JSON.stringify(finalContractList)};`
+    `${publishDir}/contracts.ts`,
+    `const contracts = ${JSON.stringify(finalContractList)};
+    export default contracts`
   );
 }
 main()
