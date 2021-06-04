@@ -25,19 +25,7 @@ const readContracts = useContractLoader(provider);
     );
 
     console.log({greet})
-  // // If you want to bring in the mainnet DAI contract it would look like:
-  // const mainnetDAIContract = useExternalContractLoader({
-  //   provider, address: DAI_ADDRESS, ABI: DAI_ABI
-  // });
 
-  // // Then read your DAI balance like:
-  // const myMainnetDAIBalance = useContractReader({
-  //   contracts: mainnetDAIContract , 
-  //   contractName: "DAI", 
-  // functionName: "balanceOf", 
-  // args: [
-  //   "0x34aA3F359A9D614239015126635CE7732c18fDF3",
-  // ]});
 
   return (
     <div className="App">
