@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Box } from '@chakra-ui/layout';
-import { Contract, providers, utils } from 'ethers';
+import { Contract, providers } from 'ethers';
 import { useBalance, usePoller, useUserAddress } from "eth-hooks";
 import { Text } from "@chakra-ui/react"
 import { formatEther } from "@ethersproject/units";
