@@ -17,6 +17,7 @@ export default function Main({
     const address = useUserAddress(provider)
     const balance = useBalance(provider, address)
     const readable = formatEther(balance)
+    console.log({readable})
 
 const greeterAddress = "0x772f780EA086958D9d248380FD92763000aa113E";
 

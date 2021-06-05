@@ -5,7 +5,6 @@ import {
     Heading,
     Text
 } from "@chakra-ui/react";
-import { Link } from 'react-router-dom';
 
 interface indexProps {
     title: string;
@@ -36,11 +35,9 @@ const Hero: React.FC<indexProps> = ({
                     {subtitle}
                 </Text>
 
-                <Link to={ctaLink}>
-                    <Button mt="8" as="a" href="#" size="lg" colorScheme="blue" fontWeight="bold">
-                        {ctaText}
-                    </Button>
-                </Link>
+                <Button mt="8" as="a" href={ctaLink} target="blank" size="lg" colorScheme="blue" fontWeight="bold">
+                    {ctaText}
+                </Button>
                 <Box>
 
                     <Text

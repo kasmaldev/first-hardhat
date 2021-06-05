@@ -36,7 +36,6 @@ const LandingLayout = ({
 
 function App() {
 
-
   return (
     <div>
       <Router>
