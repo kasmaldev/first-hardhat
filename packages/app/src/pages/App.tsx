@@ -1,6 +1,5 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import useWeb3Modal from '../hooks/useWeb3Modal';
-import Main from './Main';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Flex } from '@chakra-ui/react';
 import Header from '../components/Header';
@@ -45,10 +44,6 @@ function App() {
           <Switch>
             <Route path="/" component={Home} />
           </Switch>
-          {/* {
-            provider &&
-            <Main provider={provider} />
-          } */}
         </LandingLayout>
       </Router>
     </div>
