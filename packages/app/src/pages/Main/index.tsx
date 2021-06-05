@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box } from '@chakra-ui/layout';
 import { Contract, providers, utils } from 'ethers';
-import { useBalance, useUserAddress } from "eth-hooks";
+import { useBalance, usePoller, useUserAddress } from "eth-hooks";
 import { Text } from "@chakra-ui/react"
 import { formatEther } from "@ethersproject/units";
 import { Input } from "@chakra-ui/react"
@@ -71,9 +71,6 @@ const changeMessage = (message: string) => {
   const [value, setValue] = useState("")
   const handleChange = (event: any) => setValue(event.target.value)
 const handleClick = () => {
-    console.log({
-        value
-    })
     changeMessage(value);
 }
 
@@ -82,10 +79,8 @@ const [hello, setHello] = useState("")
 const showMessage = async () => {
   const response = await Greeter.greet()
   setHello(response)
-  console.log(
-    response
-  )
 }
+usePoller(showMessage, 3000)
     return (
         <Box>
             <Text>
@@ -100,10 +95,8 @@ const showMessage = async () => {
                 change</Button> 
             </form>
             <Text>
+              {hello}
             </Text>
-            <Button onClick={showMessage} >
-                show message
-            </Button>
         </Box>
     );
 }
