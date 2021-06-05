@@ -1,46 +1,56 @@
-import React from 'react';
-import WalletModal from '../components/WalletModal';
+import React, { createContext, useState } from 'react';
 import useWeb3Modal from '../hooks/useWeb3Modal';
 import Main from './Main';
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Flex } from '@chakra-ui/react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Home from './Home';
+import { providers } from 'ethers';
 
 interface LandingLayoutProps {
   children: JSX.Element;
 }
 
-const LandingLayout = ({ children }: LandingLayoutProps) => {
+export const ProviderContext = createContext<providers.Web3Provider | undefined>(undefined);
+
+
+const LandingLayout = ({
+  children
+}: LandingLayoutProps) => {
+  const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
   return (
-    <Flex
-      direction="column"
-      align="center"
-      m="0 auto"
-    >
-      <Header />
-      {children}
-      <Footer />
-    </Flex>
+    <ProviderContext.Provider value={provider}>
+      <Flex
+        direction="column"
+        align="center"
+        m="0 auto"
+      >
+        <Header provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal}/>
+        {children}
+        <Footer />
+      </Flex>
+    </ProviderContext.Provider>
   );
 }
 
 
 function App() {
 
-  const { provider, loadWeb3Modal, logoutOfWeb3Modal } = useWeb3Modal();
 
   return (
     <div>
-      <LandingLayout>
-        <>
-          <WalletModal provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
-          {
+      <Router>
+        <LandingLayout> 
+          <Switch>
+            <Route path="/" component={Home} />
+          </Switch>
+          {/* {
             provider &&
             <Main provider={provider} />
-          }
-        </>
+          } */}
         </LandingLayout>
+      </Router>
     </div>
   );
 }

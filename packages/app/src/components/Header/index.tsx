@@ -1,5 +1,7 @@
 import React from 'react'
 import { Box, Flex, Text, Button, Spacer } from "@chakra-ui/react";
+import { providers } from 'ethers';
+import WalletModal from '../WalletModal';
 
 const MenuItems = ({ children }: { children: string }) => (
     <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -7,7 +9,15 @@ const MenuItems = ({ children }: { children: string }) => (
     </Text>
 );
 
-const Header = () => {
+interface HeaderProps {
+    provider: providers.Web3Provider | undefined;
+    loadWeb3Modal: () => Promise<void>;
+    logoutOfWeb3Modal: () => Promise<void>;
+}
+
+const Header = ({
+    provider, loadWeb3Modal, logoutOfWeb3Modal
+}: HeaderProps) => {
 
     return (
         <Flex
@@ -41,6 +51,7 @@ const Header = () => {
                 display={{ sm: "none", md: "block" }}
                 mt={{ base: 4, md: 0 }}
             >
+                <WalletModal provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
                 <Button bg="transparent" border="1px">
                     Create account
         </Button>

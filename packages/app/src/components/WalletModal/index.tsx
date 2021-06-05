@@ -7,7 +7,6 @@ interface WalletModalProps {
     logoutOfWeb3Modal: () => Promise<void>;
 }
 
-
 export default function WalletModal({
     provider, loadWeb3Modal, logoutOfWeb3Modal
 }: WalletModalProps) {

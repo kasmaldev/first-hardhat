@@ -9,7 +9,7 @@ export default function Home() {
 
             <Hero
                 title="Ethereum"
-                subtitle="Ethreum is the best."
+                subtitle="Ethreum"
                 ctaLink="https://github.com/yuichiroaoki"
                 ctaText="Enter App"
             />
