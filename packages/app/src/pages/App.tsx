@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../assets/images/ethereumLogo.png';
 import WalletModal from '../components/WalletModal';
 import useWeb3Modal from '../hooks/useWeb3Modal';
-import './App.css';
 import Main from './Main';
 
 function App() {
@@ -18,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <WalletModal provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
         {
           provider && 
