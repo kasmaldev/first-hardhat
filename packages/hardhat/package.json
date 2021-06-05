@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat run --network kovan scripts/deploy.ts",
+    "postdeploy": "hardhat run --network kovan scripts/publish.ts",
     "test": "npx hardhat test",
     "account": "npx hardhat accounts",
     "coverage": "npm run build && npx hardhat coverage --temp artifacts --network coverage"

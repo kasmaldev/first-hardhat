@@ -1,6 +1,6 @@
+import { usePoller } from "eth-hooks";
 import { useEffect, useState } from "react";
 import useOnBlock from "./useOnBlock";
-import usePoller from "./usePoller";
 
 const DEBUG = false;
 
@@ -83,16 +83,16 @@ export default function useContractReader({
     });
 
     // Use a poller if a pollTime is provided
-    usePoller(
-        async () => {
-            if (contracts && contracts[contractName] && adjustPollTime > 0) {
-                if (DEBUG) console.log("polling!", contractName, functionName);
-                updateValue();
-            }
-        },
-        adjustPollTime,
-        contracts && contracts[contractName],
-    );
+    // usePoller(
+    //     async () => {
+    //         if (contracts && contracts[contractName] && adjustPollTime > 0) {
+    //             if (DEBUG) console.log("polling!", contractName, functionName);
+    //             updateValue();
+    //         }
+    //     },
+    //     adjustPollTime,
+    //     contracts && contracts[contractName],
+    // );
 
     return value;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { formatEther } from "@ethersproject/units";
-import useBalance from "../../hooks/useBalance";
+import { useBalance } from "eth-hooks";
 import { BigNumber, providers } from "ethers";
 
 /*
@@ -25,7 +25,7 @@ import { BigNumber, providers } from "ethers";
 
 
 interface BalanceProps {
-    provider: providers.Web3Provider | undefined;
+    provider: providers.Web3Provider;
     address: string;
     balance: undefined | BigNumber;
     value: BigNumber;
