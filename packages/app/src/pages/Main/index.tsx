@@ -8,6 +8,7 @@ import { Input } from "@chakra-ui/react"
 import { Button } from '@chakra-ui/button';
 import GreeterABI from '../../abis/Greeter.json'
 import { ZksyncTutorial } from './ZksyncTutorial';
+import { Token } from './Token';
 // import useContractLoader from '../../hooks/useContractLoader';
 
 interface indexProps {
@@ -69,7 +70,8 @@ export default function Main({
           <Box p={5} shadow="md" borderWidth="1px" >
             <Heading fontSize="xl">{address}</Heading>
           </Box>
-          <ZksyncTutorial provider={provider} />
+          {/* <ZksyncTutorial provider={provider} /> */}
+          <Token provider={provider} />
         <form>
           <Input value={value}
             onChange={handleChange}
