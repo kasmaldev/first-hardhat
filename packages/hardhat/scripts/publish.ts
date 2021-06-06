@@ -1,6 +1,13 @@
+/*
+to run this script, you need to add the following line in package.json
+```
+"postdeploy": "hardhat run --network kovan scripts/publish.ts",
+```
+*/
 import fs from "fs";
 import chalk from "chalk";
 import bre from "hardhat";
+
 
 const publishDir = "../app/src/contracts";
 const graphDir = "../subgraph"
@@ -30,9 +37,9 @@ function publishContract(contractName: string) {
       } else {
         graphConfig = '{}'
       }
-      } catch (e) {
-        console.log(e)
-      }
+    } catch (e) {
+      console.log(e)
+    }
 
     graphConfig = JSON.parse(graphConfig)
     graphConfig[contractName + "Address"] = address
@@ -49,8 +56,8 @@ function publishContract(contractName: string) {
       `module.exports = "${contract.bytecode}";`
     );
 
-    const folderPath = graphConfigPath.replace("/config.json","")
-    if (!fs.existsSync(folderPath)){
+    const folderPath = graphConfigPath.replace("/config.json", "")
+    if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath);
     }
     fs.writeFileSync(
@@ -62,13 +69,13 @@ function publishContract(contractName: string) {
       JSON.stringify(contract.abi, null, 2)
     );
 
-    console.log(" 📠 Published "+chalk.green(contractName)+" to the frontend.")
+    console.log(" 📠 Published " + chalk.green(contractName) + " to the frontend.")
 
     return true;
   } catch (e) {
-    if(e.toString().indexOf("no such file or directory")>=0){
-      console.log(chalk.yellow(" ⚠️  Can't publish "+contractName+" yet (make sure it getting deployed)."))
-    }else{
+    if (e.toString().indexOf("no such file or directory") >= 0) {
+      console.log(chalk.yellow(" ⚠️  Can't publish " + contractName + " yet (make sure it getting deployed)."))
+    } else {
       console.log(e);
       return false;
     }

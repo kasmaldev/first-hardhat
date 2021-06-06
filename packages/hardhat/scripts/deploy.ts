@@ -1,10 +1,18 @@
 import { ethers } from "hardhat";
 
-async function main() {
-  const Greeter = await ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+const ETHERSCAN_TX_URL = "https://kovan.etherscan.io/tx/"
 
-  console.log("Greeter deployed to:", greeter.address);
+async function main() {
+  // const Greeter = await ethers.getContractFactory("Greeter");
+  const Token = await ethers.getContractFactory("Token");
+  // const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const token = await Token.deploy();
+
+  // console.log("Greeter deployed to:", greeter.address);
+  console.log("Token deployed to:", token.address);
+  console.log(
+    `You did it! View your tx here: ${ETHERSCAN_TX_URL}${token.deployTransaction.hash}`
+  )
 }
 
 main()
