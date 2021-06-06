@@ -51,13 +51,24 @@ export const ZksyncTutorial: React.FC<zksyncProps> = ({
         // Committed state is not final yet
         const committedETHBalance = await syncWallet.getBalance("ETH");
         const readable = formatEther(committedETHBalance)
-        
+
         // Verified state is final
         const verifiedETHBalance = await syncWallet.getBalance("ETH", "verified");
         const readableVerified = formatEther(committedETHBalance)
         console.log({
             committedETHBalance, verifiedETHBalance,
             readable, readableVerified
+        })
+        const amount = zksync.utils.closestPackableTransactionAmount(ethers.utils.parseEther("0.999"));
+
+        const transfer = await syncWallet.syncTransfer({
+            to: syncWallet.address(),
+            token: "ETH",
+            amount,
+        });
+        const transferReceipt = await transfer.awaitReceipt();
+        console.log({
+            transferReceipt
         })
 
     }
