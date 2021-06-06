@@ -7,6 +7,7 @@ import { formatEther } from "@ethersproject/units";
 import { Input } from "@chakra-ui/react"
 import { Button } from '@chakra-ui/button';
 import GreeterABI from '../../abis/Greeter.json'
+// import useContractLoader from '../../hooks/useContractLoader';
 
 interface indexProps {
   provider: providers.Web3Provider;
@@ -35,7 +36,7 @@ export default function Main({
 
   // The Contract object
   const greeter = new Contract(greeterAddress, GreeterABI, provider);
-
+  // const greeter = useContractLoader(provider, greeterAddress, GreeterABI)
 
   const greetMessage = useContractReader(greeter, "greet");
   const signer = provider.getSigner()
@@ -58,13 +59,11 @@ export default function Main({
           <Box p={5} shadow="md" borderWidth="1px" >
             <Heading fontSize="xl">{address}</Heading>
             <Text mt={4}>greet: {greetMessage}</Text>
-            {/* <Text mt={4}>network name: {network.name}</Text> */}
           </Box>
 
           <Box p={5} shadow="md" borderWidth="1px" >
             <Heading fontSize="xl">{address}</Heading>
           </Box>
-        </Stack>
         <form>
           <Input value={value}
             onChange={handleChange}
@@ -72,6 +71,7 @@ export default function Main({
           <Button onClick={handleClick}>
             change</Button>
         </form>
+        </Stack>
       </Center>
     </Box>
   );
