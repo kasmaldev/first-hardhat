@@ -3,10 +3,11 @@ import { Box, Center, Heading, Stack } from '@chakra-ui/layout';
 import { Contract, providers } from 'ethers';
 import { useBalance, useContractReader, useUserAddress } from "eth-hooks";
 import { Text } from "@chakra-ui/react"
-import { formatEther } from "@ethersproject/units";
+// import { formatEther } from "@ethersproject/units";
 import { Input } from "@chakra-ui/react"
 import { Button } from '@chakra-ui/button';
 import GreeterABI from '../../abis/Greeter.json'
+import { ZksyncTutorial } from './ZksyncTutorial';
 // import useContractLoader from '../../hooks/useContractLoader';
 
 interface indexProps {
@@ -17,9 +18,9 @@ export default function Main({
   provider
 }: indexProps) {
   const address = useUserAddress(provider)
-  const balance = useBalance(provider, address)
-  const readable = formatEther(balance)
-  console.log({ readable })
+  // const balance = useBalance(provider, address)
+  // const readable = formatEther(balance)
+  // console.log({ readable })
 
   const greeterAddress = "0x772f780EA086958D9d248380FD92763000aa113E";
 
@@ -41,9 +42,13 @@ export default function Main({
   const greetMessage = useContractReader(greeter, "greet");
   const signer = provider.getSigner()
 
-  const Greeter = greeter.connect(signer);
   const changeMessage = (message: string) => {
-    Greeter.setGreeting(message)
+    try {
+      const Greeter = greeter.connect(signer);
+      Greeter.setGreeting(message)
+    } catch (e) {
+      console.log(e)
+    }
   }
   const [value, setValue] = useState("")
   const handleChange = (event: any) => setValue(event.target.value)
@@ -64,6 +69,7 @@ export default function Main({
           <Box p={5} shadow="md" borderWidth="1px" >
             <Heading fontSize="xl">{address}</Heading>
           </Box>
+          <ZksyncTutorial provider={provider} />
         <form>
           <Input value={value}
             onChange={handleChange}

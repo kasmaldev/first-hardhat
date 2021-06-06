@@ -36,8 +36,12 @@ function useWeb3Modal(config = {
     }, [NETWORK])
 
     const loadWeb3Modal = useCallback(async () => {
-        const newProvider = await web3Modal.connect();
-        setProvider(new providers.Web3Provider(newProvider));
+        try {
+            const newProvider = await web3Modal.connect();
+            setProvider(new providers.Web3Provider(newProvider));
+        } catch (e) {
+            console.log(e)
+        }
     }, [web3Modal]);
 
     const logoutOfWeb3Modal = useCallback(
