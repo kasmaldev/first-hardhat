@@ -11,16 +11,19 @@ export default function Home() {
         <Box w="100%" bgGradient="linear(to-b, green.700, cyan.500)">
 
             {
-                provider &&
+                provider ?
                 <Main provider={provider} />
+                :
+                <>
+                <Hero
+                    title="Ethereum"
+                    subtitle="connect your wallet to get started"
+                    ctaLink="https://github.com/yuichiroaoki"
+                    ctaText="Enter App"
+                />
+                <Features />
+                </>
             }
-            <Hero
-                title="Ethereum"
-                subtitle="Ethreum"
-                ctaLink="https://github.com/yuichiroaoki"
-                ctaText="Enter App"
-            />
-            <Features />
 
         </Box>
     )

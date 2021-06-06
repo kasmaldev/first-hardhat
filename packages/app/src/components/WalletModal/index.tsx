@@ -13,6 +13,7 @@ export default function WalletModal({
 
     return (
         <Button
+            bg="transparent" border="1px"
             onClick={() => {
                 if (!provider) {
                     loadWeb3Modal();

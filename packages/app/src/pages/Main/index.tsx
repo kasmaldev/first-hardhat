@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Box } from '@chakra-ui/layout';
+import { Box, Center, Heading, Stack } from '@chakra-ui/layout';
 import { Contract, providers } from 'ethers';
 import { useBalance, usePoller, useUserAddress } from "eth-hooks";
 import { Text } from "@chakra-ui/react"
 import { formatEther } from "@ethersproject/units";
 import { Input } from "@chakra-ui/react"
 import { Button } from '@chakra-ui/button';
+import GreeterABI from '../../abis/Greeter.json'
 
 interface indexProps {
     provider: providers.Web3Provider;
@@ -21,48 +22,8 @@ export default function Main({
 
 const greeterAddress = "0x772f780EA086958D9d248380FD92763000aa113E";
 
-const greeterABI = [
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_greeting",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [],
-      "name": "greet",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_greeting",
-          "type": "string"
-        }
-      ],
-      "name": "setGreeting",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    }
-  ];
-
 // The Contract object
-const greeter = new Contract(greeterAddress, greeterABI, provider);
+const greeter = new Contract(greeterAddress, GreeterABI, provider);
 const signer = provider.getSigner()
 
 const Greeter = greeter.connect(signer);
@@ -84,20 +45,30 @@ const showMessage = async () => {
 usePoller(showMessage, 3000)
     return (
         <Box>
-            <Text>
-                address: {address}
-            </Text>
-            <form>
+          <Center>
+            <Stack spacing={8}>
 
+    <Box p={5} shadow="md" borderWidth="1px" >
+      <Heading fontSize="xl">{address}</Heading>
+      <Text mt={4}>{hello}</Text>
+    </Box>
+
+    <Box p={5} shadow="md" borderWidth="1px" >
+      <Heading fontSize="xl">{address}</Heading>
+      <Text mt={4}>{hello}</Text>
+    </Box>
+            </Stack>
+            <form>
             <Input value={value}
         onChange={handleChange}
-            placeholder="Greeter" />
+        placeholder="Greeter" />
             <Button onClick={handleClick}>
                 change</Button> 
             </form>
             <Text>
               {hello}
             </Text>
+        </Center>
         </Box>
     );
 }

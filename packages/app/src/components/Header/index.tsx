@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Text, Button, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Text, Spacer } from "@chakra-ui/react";
 import { providers } from 'ethers';
 import WalletModal from '../WalletModal';
 
@@ -52,9 +52,6 @@ const Header = ({
                 mt={{ base: 4, md: 0 }}
             >
                 <WalletModal provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
-                <Button bg="transparent" border="1px">
-                    Create account
-        </Button>
             </Box>
         </Flex>
     );
