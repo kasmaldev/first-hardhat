@@ -13,7 +13,7 @@ export const ZksyncTutorial: React.FC<zksyncProps> = ({
 }) => {
     const getsyncprovider = async () => {
         const syncProvider = await zksync.getDefaultProvider("rinkeby");
-        const ethersProvider = ethers.getDefaultProvider("rinkeby");
+        // const ethersProvider = ethers.getDefaultProvider("rinkeby");
         // Create ethereum wallet using ethers.js
         // const ethWallet = ethers.Wallet.fromMnemonic(MNEMONIC).connect(ethersProvider);
         const ethSginer = provider.getSigner()
