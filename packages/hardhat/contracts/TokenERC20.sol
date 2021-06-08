@@ -10,5 +10,4 @@ contract TokenERC20 is ERC20 {
     constructor(uint256 initialSupply) ERC20("Aoki", "AOKI") {
         _mint(msg.sender, initialSupply);
     }
-
 }
