@@ -18,7 +18,7 @@ task("accounts", "Prints the list of accounts", async (args, hre) => {
 });
 
 const local = {
-  solidity: "0.6.12",
+  solidity: "0.8.0",
   networks: {
     hardhat: {
     },
@@ -26,7 +26,7 @@ const local = {
 };
 
 const with_kovan = {
-  solidity: "0.6.12",
+  solidity: "0.8.0",
   networks: {
     hardhat: {
       forking: {
