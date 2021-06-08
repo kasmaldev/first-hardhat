@@ -6,7 +6,7 @@ async function main() {
   // const Greeter = await ethers.getContractFactory("Greeter");
   const Token = await ethers.getContractFactory("TokenERC20");
   // const greeter = await Greeter.deploy("Hello, Hardhat!");
-  const token = await Token.deploy();
+  const token = await Token.deploy(1000);
   console.log("Token deployed to:", token.address);
   console.log(
     `You did it! View your tx here: ${ETHERSCAN_TX_URL}${token.deployTransaction.hash}`
