@@ -15,10 +15,6 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/hardhat",
-      "**/hardhat/**"
     ]
   },
   "repository": {

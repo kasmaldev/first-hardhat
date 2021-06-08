@@ -1,4 +1,3 @@
-// require('dotenv').config({ path: __dirname + '/.env' })
 import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname+'/.env' });
 import "@nomiclabs/hardhat-etherscan";
