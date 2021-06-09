@@ -1,0 +1,3 @@
+export const greeterAddress = "0x772f780EA086958D9d248380FD92763000aa113E";
+
+export const tokenAddress = "0xC017603475A78C28Cc5e397111A9727A2323f941"

@@ -9,6 +9,7 @@ import { Button } from '@chakra-ui/button';
 import GreeterABI from '../../abis/Greeter.json'
 import { ZksyncTutorial } from './ZksyncTutorial';
 import { Token } from './Token';
+import { greeterAddress } from '../../constants/addresses';
 // import useContractLoader from '../../hooks/useContractLoader';
 
 interface indexProps {
@@ -22,8 +23,6 @@ export default function Main({
   // const balance = useBalance(provider, address)
   // const readable = formatEther(balance)
   // console.log({ readable })
-
-  const greeterAddress = "0x772f780EA086958D9d248380FD92763000aa113E";
 
   const getNetwork = async () => {
 
