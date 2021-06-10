@@ -4,14 +4,17 @@ import Web3Modal from "web3modal";
 import { providers } from "ethers";
 
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { INFURA_ID } from "../constants";
+// import { INFURA_ID } from "../constants";
+import { NETWORK_URLS } from "../connectors";
+import { SupportedChainId } from "../contracts/chains";
 
 const NETWORK_NAME = "kovan";
 const providerOptions = {
     walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-            infuraId: INFURA_ID // required
+            // infuraId: INFURA_ID // required
+            infuraId: NETWORK_URLS[SupportedChainId.KOVAN] // required
         }
     }
 };
