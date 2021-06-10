@@ -4,15 +4,14 @@ import Web3Modal from "web3modal";
 import { providers } from "ethers";
 
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { NETWORK_URLS } from "../connectors";
-import { SupportedChainId } from "../contracts/chains";
+import { INFURA_KEY } from "../connectors";
 
 const NETWORK_NAME = "kovan";
 const providerOptions = {
     walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-            infuraId: NETWORK_URLS[SupportedChainId.KOVAN] // required
+            infuraId: INFURA_KEY // required
         }
     }
 };
@@ -29,12 +28,12 @@ function useWeb3Modal(config = {
 
     const web3Modal = useMemo(() => {
         return new Web3Modal({
-        network: NETWORK,
+        // network: NETWORK, // optional
         cacheProvider: true,
         providerOptions: providerOptions,
         theme: "dark"
     });
-    }, [NETWORK])
+    }, [])
 
     const loadWeb3Modal = useCallback(async () => {
         try {

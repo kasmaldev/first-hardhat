@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Center, Heading, Stack } from '@chakra-ui/layout';
 import { Contract, providers } from 'ethers';
-import { useBalance, useContractReader, useUserAddress } from "eth-hooks";
+import { useContractReader, useUserAddress } from "eth-hooks";
 import { Text } from "@chakra-ui/react"
-// import { formatEther } from "@ethersproject/units";
 import { Input } from "@chakra-ui/react"
 import { Button } from '@chakra-ui/button';
 import GreeterABI from '../../abis/Greeter.json'
@@ -24,26 +23,32 @@ export default function Main({
   // const readable = formatEther(balance)
   // console.log({ readable })
 
-  const getNetwork = async () => {
+  const [network, setNetwork] = useState("kovan")
 
-    const network = await provider.getNetwork()
-    const name = network.name 
-    console.log({
-      network, name
-    })
-  }
+  
+  useEffect(() => {
+    const getNetwork = async () => {
+  
+      const network = await provider.getNetwork()
+      const name = network.name 
+      setNetwork(name)
+      console.log({
+        network, name
+      })
+    }
+    getNetwork()
+  }, [provider])
 
-  getNetwork()
 
   // The Contract object
   const greeter = new Contract(greeterAddress, GreeterABI, provider);
   // const greeter = useContractLoader(provider, greeterAddress, GreeterABI)
 
   const greetMessage = useContractReader(greeter, "greet");
-  const signer = provider.getSigner()
-
+  
   const changeMessage = (message: string) => {
     try {
+      const signer = provider.getSigner()
       const Greeter = greeter.connect(signer);
       Greeter.setGreeting(message)
     } catch (e) {
@@ -70,7 +75,7 @@ export default function Main({
             <Heading fontSize="xl">{address}</Heading>
           </Box>
           {/* <ZksyncTutorial provider={provider} /> */}
-          <Token provider={provider} />
+          {/* <Token provider={provider} /> */}
         <form>
           <Input value={value}
             onChange={handleChange}
