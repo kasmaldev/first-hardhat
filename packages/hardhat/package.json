@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "npx hardhat compile",
-    "deploy": "npx hardhat run --network kovan scripts/deploy.ts",
+    "deploy": "npx hardhat run scripts/deploy.ts",
     "test": "npx hardhat test",
     "account": "npx hardhat accounts"
   },

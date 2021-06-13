@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.7.0;
 
+import "hardhat/console.sol";
 import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 
 contract PriceConverter {
@@ -26,6 +27,9 @@ contract PriceConverter {
             uint timeStamp,
             uint80 answeredInRound
         ) = priceFeed.latestRoundData();
+        console.log(
+            roundID, startedAt, timeStamp, answeredInRound
+        );
         return price;
     }
 
