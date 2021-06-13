@@ -22,13 +22,12 @@ export default function WalletModal({
                     :
 
                     <Button
-                        bg="transparent" border="1px"
                         onClick={() => {
                             loadWeb3Modal();
                         }}
                     >
                         Connect Wallet
-            </Button>
+                    </Button>
 
             }
         </>
@@ -48,13 +47,16 @@ const ConnectedWallet = ({
     return (
         <Menu>
             <MenuButton as={Button}
-                bg="transparent" border="1px"
             >
                 {address}
             </MenuButton>
             <MenuList>
-                <MenuItem>Copy Address</MenuItem>
-                <MenuItem as={Button} onClick={logoutOfWeb3Modal}>
+                <MenuItem as={Button}
+                >
+                    Copy Address
+                </MenuItem>
+                <MenuItem as={Button}
+                    onClick={logoutOfWeb3Modal}>
                     Disconnect
                 </MenuItem>
             </MenuList>

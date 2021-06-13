@@ -24,7 +24,10 @@
     "ethers": "^5.2.0",
     "hardhat": "^2.2.1",
     "ts-node": "^10.0.0",
-    "typescript": "^4.2.4"
+    "ethereumjs-util": "7.0.10",
+    "ethereumjs-abi": "0.6.8",
+    "typescript": "^4.2.4",
+    "@chainlink/contracts": "0.1.7"
   },
   "dependencies": {
     "@openzeppelin/contracts": "3.3.0",

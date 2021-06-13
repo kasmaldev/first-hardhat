@@ -6,20 +6,20 @@ const sample_token_uri = "https://ipfs.io/ipfs/Qmd9MCGtdVz2miNumBHDbvj8bigSgTwnr
 async function main() {
   // const Greeter = await ethers.getContractFactory("Greeter");
   // const Token = await ethers.getContractFactory("TokenERC20");
-  const collectible = await ethers.getContractFactory("SimpleCollectible");
+  const collectible = await ethers.getContractFactory("PriceConverter");
   // const greeter = await Greeter.deploy("Hello, Hardhat!");
   // const token = await Token.deploy(1000);
   const Collectible = await collectible.deploy();
 
-  const newItemID = await Collectible.createCollectible(sample_token_uri)
+  // const newItemID = await Collectible.createCollectible(sample_token_uri)
 
   console.log("Token deployed to:", Collectible.address);
   console.log(
     `You did it! View your tx here: ${ETHERSCAN_TX_URL}${Collectible.deployTransaction.hash}`
   )
-  console.log({
-    newItemID
-  })
+  // console.log({
+  //   newItemID
+  // })
 }
 
 main()
